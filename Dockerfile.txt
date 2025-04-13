@@ -1,0 +1,18 @@
+# Użycie lekkiego obrazu Pythona
+FROM python:3.11-slim
+
+# Ustawienie katalogu roboczego
+WORKDIR /app
+
+# Instalacja zależności
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Skopiowanie aplikacji
+COPY app.py .
+
+# Wystawienie portu
+EXPOSE 5000
+
+# Komenda uruchamiająca aplikację
+CMD ["python", "app.py"]
